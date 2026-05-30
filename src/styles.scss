@@ -1,1 +1,46 @@
+@import 'primeicons/primeicons.css';
+@import 'primeflex/primeflex.css';
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --dark-color: #34495e;
+    --success-color: #27ae60;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Dark mode header override */
+.app-dark app-header .header {
+  background: #1a2035;
+}
+
+/* Dark mode: fix active/sorted table column header contrast */
+.app-dark .p-datatable .p-datatable-thead > tr > th.p-datatable-column-sorted,
+.app-dark .p-datatable .p-datatable-thead > tr > th:hover {
+  background: #2a3a5c !important;
+  color: #ffffff !important;
+}
+
+.app-dark .p-datatable .p-datatable-thead > tr > th.p-datatable-column-sorted .p-datatable-column-title,
+.app-dark .p-datatable .p-datatable-thead > tr > th.p-datatable-column-sorted .p-sortable-column-icon {
+  color: #ffffff !important;
+}
+
+/* Dark mode: main-content background */
+.app-dark app-main-content .main-content {
+  background: #0f1729;
+  color: #e2e8f0;
+}
+
 /* You can add global styles to this file, and also import other style files */

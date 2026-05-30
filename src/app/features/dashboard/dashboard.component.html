@@ -1,0 +1,33 @@
+<!-- Main Content Area -->
+<div class="main-content">
+    <!-- Header -->
+    <div class="header">
+        <h1 class="mb-5">Library Dashboard</h1>
+        <!-- <div class="user-profile">
+            <div class="user-info">
+                <div class="user-name">Admin User</div>
+                <div class="user-role">Library Administrator</div>
+            </div>
+            <div class="avatar">AU</div>
+        </div> -->
+    </div>
+
+    <!-- Key Metrics Cards -->
+    <div class="cards-container">
+        <p-card *ngFor="let card of cards" [header]="card.title" styleClass="card-custom p-4">
+            <ng-template pTemplate="header">
+                <div class="card-header">
+                    <div class="card-title">{{ card.title }}</div>
+                    <div class="card-icon" [ngClass]="card.iconClass">
+                        <i [ngClass]="card.icon"></i>
+                    </div>
+                </div>
+            </ng-template>
+            <div class="card-value">{{ card.value }}</div>
+            <div class="card-footer">
+                <i [ngClass]="card.trendIcon"></i>
+                <span>{{ card.trendText }}</span>
+            </div>
+        </p-card>
+    </div>
+</div>

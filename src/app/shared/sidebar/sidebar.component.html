@@ -1,0 +1,13 @@
+<div class="sidebar">
+  <div class="logo">
+    <h2><i class="pi pi-book"></i> LibraSys</h2>
+  </div>
+  <nav class="nav-menu">
+    <div *ngFor="let item of navItems; let i = index" class="nav-item" [ngClass]="{active: activeIndex === i}">
+      <a [routerLink]="item.route" class="nav-link" (click)="setActive(i)">
+        <i [ngClass]="item.icon"></i>
+        <span>{{ item.label }}</span>
+      </a>
+    </div>
+  </nav>
+</div>

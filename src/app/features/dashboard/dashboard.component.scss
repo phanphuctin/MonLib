@@ -1,0 +1,96 @@
+/* Dashboard Cards */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.header {
+    color: black;
+}
+
+.card-custom.p-card {
+  background: #fff !important;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card-custom.p-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+}
+
+.card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.card-icon.books {
+    background-color: #3498db;
+}
+
+.card-icon.members {
+    background-color: #e67e22;
+}
+
+.card-icon.loans {
+    background-color: #27ae60;
+}
+
+.card-icon.overdue {
+    background-color: #e74c3c;
+}
+
+.card-value {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--dark-color);
+}
+
+.card-footer {
+    font-size: 12px;
+    color: #777;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+::ng-deep .p-card {
+  background: #fff !important;
+  transition: transform 0.3s, box-shadow 0.5s;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+::ng-deep .p-card-title {
+    display: none;
+}
+
+::ng-deep .p-card-body {
+    padding: 0 !important;
+}

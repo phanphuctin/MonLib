@@ -1,0 +1,74 @@
+<div class="card">
+  <div class="flex justify-content-between align-items-center mb-3">
+    <span class="input-icon-left">
+      <i class="pi pi-search"></i>
+      <input pInputText type="text" (input)="onGlobalFilter($event)" placeholder="Global Search..." />
+    </span>
+    <div class="flex align-items-center gap-2">
+      <p-dropdown
+        [options]="categoryOptions"
+        [(ngModel)]="selectedCategory"
+        (onChange)="onCategoryChange($event.value)"
+        placeholder="Category"
+        [style]="{'width': '150px'}"
+      ></p-dropdown>
+      <p-dropdown
+        [options]="statusOptions"
+        [(ngModel)]="selectedStatus"
+        (onChange)="onStatusChange($event.value)"
+        placeholder="Status"
+        [style]="{'width': '150px'}"
+      ></p-dropdown>
+    </div>
+  </div>
+
+  <p-table
+    [value]="filteredBooks"
+    [paginator]="true"
+    [rows]="5"
+    [rowsPerPageOptions]="[5,10,20]"
+    [responsiveLayout]="'scroll'"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} books"
+    [globalFilterFields]="['title','author','isbn','category','status']"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="title">Title <p-sortIcon field="title"></p-sortIcon></th>
+        <th pSortableColumn="author">Author <p-sortIcon field="author"></p-sortIcon></th>
+        <th pSortableColumn="isbn">ISBN <p-sortIcon field="isbn"></p-sortIcon></th>
+        <th pSortableColumn="category">Category <p-sortIcon field="category"></p-sortIcon></th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-book>
+      <tr>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.isbn }}</td>
+        <td>{{ book.category }}</td>
+        <td>
+          <span
+            class="p-badge"
+            [ngClass]="{
+              'bg-success': book.status === 'Available',
+              'bg-warning': book.status === 'Borrowed'
+            }"
+          >
+            {{ book.status }}
+          </span>
+        </td>
+        <td>
+          <button pButton type="button" icon="pi pi-pencil" class="p-button-text mr-2" (click)="onEdit(book)"></button>
+          <button pButton type="button" icon="pi pi-trash" class="p-button-text p-button-danger" (click)="onDelete(book)"></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="6" class="text-center">No books found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
