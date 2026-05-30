@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: .
+      target: development
+    image: mon-library:dev
+    container_name: mon-library-dev
+    ports:
+      - "4200:4200"
+    volumes:
+      # Sync source code from host into the container
+      - .:/app
+      # Preserve the container's node_modules — avoids Windows/Linux binary conflicts
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped

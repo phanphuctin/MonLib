@@ -1,0 +1,10 @@
+services:
+  app:
+    build:
+      context: .
+      target: production
+    image: mon-library:prod
+    container_name: mon-library-prod
+    ports:
+      - "80:80"
+    restart: unless-stopped

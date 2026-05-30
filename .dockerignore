@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Angular cache
+.angular/
+
+# Version control
+.git/
+.gitignore
+
+# Editor
+.vscode/
+
+# Docker files (avoid recursive context)
+Dockerfile
+docker-compose*.yml
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage/
